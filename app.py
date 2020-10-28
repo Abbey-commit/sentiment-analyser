@@ -153,7 +153,7 @@ def predict_all():
             y = models[model][vectorizer].predict(x)  # prediction
             response[model][vectorizer] = "positive" if y else "negative"
 
-        return response
+    return response
     #return validate(PredictSchema, predict, request.json)
 
 
