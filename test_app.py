@@ -25,7 +25,7 @@ def test_base_endpoint_get(client):
 
 def test_base_endpoint_post(client):
     response = client.post('/')
-    assert response.assert_code == 404
+    assert response.status_code == 404
 
 
 def test_predict_endpoint_get(client):
@@ -93,7 +93,8 @@ def test_predict_all_endpoint_valid_post(client):
         "text": "it's a beautiful world"
     })
     assert response.status_code == 200
-    assert response.response.json["multinomial"]["tfidf"] in ["positive", "negative"]
+    print(response.json)
+    assert response.json["multinomial"]["tfidf"] in ["positive", "negative"]
     assert isinstance(response.json, dict)
 
 
